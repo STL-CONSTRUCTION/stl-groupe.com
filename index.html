@@ -29,7 +29,7 @@
   --bg:#0F1115; --bg-2:#171A20; --fg:#F2F2F0; --fg-2:#C4C7CE; --fg-3:#8A8F99; --line:#2A2E36;
   --accent:#FF6A33; --accent-ink:#FF8A5C; --inv-bg:#F2F2F0; --inv-fg:#0F1115; --inv-2:#3D4048; color-scheme:dark}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .wrap{max-width:var(--w);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
@@ -181,6 +181,25 @@ footer dd{margin:0;color:var(--fg-2)}
 .rp-foot{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;font-size:.9rem;color:var(--fg)}
 @media (max-width:420px){.rp-list li{grid-template-columns:1fr;gap:2px}}
 
+/* vidéos */
+.reel{background:#0F1115;padding-block:clamp(20px,3vw,36px)}
+.vid{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#0F1115;border-radius:10px}
+.reel-cap{color:#9EA3AD;margin-top:12px}
+.proc{margin:22px 0 28px}
+.proc .vid{border:1px solid var(--line)}
+.steps{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:10px}
+.steps span{white-space:nowrap}
+/* réseaux sociaux */
+.socials{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.soc{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;text-decoration:none;font-size:.9rem;color:var(--fg)}
+.soc svg{width:18px;height:18px;fill:currentColor}
+a.soc:hover{border-color:var(--accent);color:var(--accent-ink)}
+.soc.soon{color:var(--fg-3);cursor:default}
+.soc .sn{font-size:.8rem}
+.soc.small{padding:5px 10px;font-size:.8rem}
+.foot .socials{margin-top:0}
+.foot{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px}
+
 </style>
 </head>
 <body>
@@ -227,6 +246,15 @@ footer dd{margin:0;color:var(--fg-2)}
     </div>
   </section>
 
+  <section class="reel" aria-label="Vidéo">
+    <div class="wrap">
+      <video class="vid" autoplay muted loop playsinline preload="metadata" poster="assets/stl-hero.jpg" aria-label="Animation : un bâtiment se dessine, se cote puis se vitre">
+        <source src="assets/stl-hero.mp4" type="video/mp4">
+      </video>
+      <div class="reel-cap mono"><span data-l="fr">Du plan au chantier, chaque chiffre est tracé.</span><span data-l="en">From drawing to site, every figure is traceable.</span><span data-l="tr">Çizimden şantiyeye, her rakamın kaynağı belli.</span></div>
+    </div>
+  </section>
+
   <section class="band" id="livrables">
     <div class="wrap band-grid">
       <div class="mono">01 · <span data-l="fr">Ce que vous recevez</span><span data-l="en">What you get</span><span data-l="tr">Neler alırsınız</span></div>
@@ -246,6 +274,12 @@ footer dd{margin:0;color:var(--fg-2)}
       <div class="mono">02 · <span data-l="fr">Fonctionnement</span><span data-l="en">How it works</span><span data-l="tr">Nasıl çalışır</span></div>
       <div>
         <h2 data-l="fr">L’IA prépare, une personne vérifie, vous décidez.</h2><h2 data-l="en">AI prepares. A person checks. You decide.</h2><h2 data-l="tr">Yapay zekâ hazırlar, insan kontrol eder, siz karar verirsiniz.</h2>
+        <figure class="proc">
+          <video class="vid" autoplay muted loop playsinline preload="metadata" poster="assets/stl-process.jpg" aria-label="Animation : plan, métré, devis, chantier">
+            <source src="assets/stl-process.mp4" type="video/mp4">
+          </video>
+          <figcaption class="steps mono"><span>01 <span data-l="fr">Plan</span><span data-l="en">Drawing</span><span data-l="tr">Çizim</span></span><span>02 <span data-l="fr">Métré</span><span data-l="en">Take-off</span><span data-l="tr">Metraj</span></span><span>03 <span data-l="fr">Devis</span><span data-l="en">Bid</span><span data-l="tr">Teklif</span></span><span>04 <span data-l="fr">Chantier</span><span data-l="en">Site</span><span data-l="tr">Şantiye</span></span></figcaption>
+        </figure>
         <ol class="flow">
           <li class="fs"><span class="who"><span data-l="fr">Vous</span><span data-l="en">You</span><span data-l="tr">Siz</span></span><h3><span data-l="fr">Envoi</span><span data-l="en">Send</span><span data-l="tr">Gönderme</span></h3><p><span data-l="fr">Plans, DAO, factures ou pointages, par e-mail ou WhatsApp.</span><span data-l="en">Drawings, tender documents, invoices or timesheets, by email or WhatsApp.</span><span data-l="tr">Çizim, ihale dosyası, fatura veya puantaj; e-postayla ya da WhatsApp’tan.</span></p></li>
           <li class="fs"><span class="who"><span data-l="fr">Équipe IA</span><span data-l="en">AI team</span><span data-l="tr">Yapay zekâ ekibi</span></span><h3><span data-l="fr">Préparation</span><span data-l="en">Preparation</span><span data-l="tr">Hazırlık</span></h3><p><span data-l="fr">Le chef d’équipe IA confie chaque tâche à l’agent spécialisé qui convient.</span><span data-l="en">The lead AI agent hands each task to the right specialist agent.</span><span data-l="tr">Lider ajan her işi doğru uzman ajana verir.</span></p></li>
@@ -291,6 +325,7 @@ footer dd{margin:0;color:var(--fg-2)}
             <a class="btn" href="mailto:sales@stl-groupe.com"><span data-l="fr">Écrire</span><span data-l="en">Email us</span><span data-l="tr">E-posta gönder</span></a>
           </span>
         </div>
+        <div class="socials"><span class="soc soon" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3V9.75zM9.5 9.75h3.8v1.55h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.05c0-1.2-.02-2.75-1.68-2.75-1.68 0-1.94 1.31-1.94 2.66V21h-4V9.75z"/></svg><span>LinkedIn</span><span class="sn" data-l="fr"> · bientôt</span><span class="sn" data-l="en"> · soon</span><span class="sn" data-l="tr"> · yakında</span></span><span class="soc soon" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21h2.9z"/></svg><span>Facebook</span><span class="sn" data-l="fr"> · bientôt</span><span class="sn" data-l="en"> · soon</span><span class="sn" data-l="tr"> · yakında</span></span></div>
       </div>
     </div>
   </section>
@@ -299,6 +334,7 @@ footer dd{margin:0;color:var(--fg-2)}
 <footer>
   <div class="wrap foot">
     <span>© 2026 STL Groupe · stl-groupe.com</span>
+    <div class="socials"><span class="soc small soon" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3V9.75zM9.5 9.75h3.8v1.55h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.05c0-1.2-.02-2.75-1.68-2.75-1.68 0-1.94 1.31-1.94 2.66V21h-4V9.75z"/></svg><span>LinkedIn</span><span class="sn" data-l="fr"> · bientôt</span><span class="sn" data-l="en"> · soon</span><span class="sn" data-l="tr"> · yakında</span></span><span class="soc small soon" title="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21h2.9z"/></svg><span>Facebook</span><span class="sn" data-l="fr"> · bientôt</span><span class="sn" data-l="en"> · soon</span><span class="sn" data-l="tr"> · yakında</span></span></div>
     <details>
       <summary><span data-l="fr">Mentions légales</span><span data-l="en">Legal notice</span><span data-l="tr">Yasal bilgiler</span></summary>
       <dl>
@@ -321,6 +357,11 @@ footer dd{margin:0;color:var(--fg-2)}
   try{var s=localStorage.getItem('stl-lang');if(L.indexOf(s)>=0)start=s}catch(e){}
   set(start);
   L.forEach(function(x){document.getElementById('l-'+x).onclick=function(){set(x)}});
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelectorAll('video').forEach(function(v){v.removeAttribute('autoplay');try{v.pause()}catch(e){};v.setAttribute('controls','')})}
+  if('IntersectionObserver' in window && !(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}else{v.pause()}})},{threshold:.25});
+    document.querySelectorAll('video').forEach(function(v){io.observe(v)});
+  }
   var c=document.getElementById('copied');
   document.getElementById('copy').onclick=function(){
     function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('mail'));var g=getSelection();g.removeAllRanges();g.addRange(r);c.textContent=MSG[root.lang][1]}
